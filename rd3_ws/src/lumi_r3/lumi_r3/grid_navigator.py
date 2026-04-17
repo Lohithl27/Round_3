@@ -195,6 +195,10 @@ class GridNavigator(Node):
             f'  Waypts: {len(WAYPOINTS)}\n'
             '  Tags  : 4→right  1→left  2→green  0→uturn  3→orange\n'
             '  Auto-start: 5s')
+        if SAFE_SLOW_DIST <= SAFE_STOP_DIST:
+            self.get_logger().warn(
+                f'Invalid safety thresholds: SAFE_SLOW_DIST ({SAFE_SLOW_DIST}) '
+                f'must be greater than SAFE_STOP_DIST ({SAFE_STOP_DIST})')
 
     # ── Startup ───────────────────────────────────────────────────────────────
     def _start_once(self):
@@ -442,18 +446,18 @@ class GridNavigator(Node):
             self.sec['FR'] * SIDE_SECTOR_WEIGHT
         )
 
-    def _safe_forward_speed(self, requested, eff=None):
+    def _safe_forward_speed(self, requested, front_clearance=None):
         if requested <= 0.0 or not self.lidar_ok:
             return requested
-        if eff is None:
-            eff = self._front_clearance()
-        if eff < SAFE_STOP_DIST:
+        if front_clearance is None:
+            front_clearance = self._front_clearance()
+        if front_clearance < SAFE_STOP_DIST:
             return 0.0
-        if eff < SAFE_SLOW_DIST:
+        if front_clearance < SAFE_SLOW_DIST:
             span = SAFE_SLOW_DIST - SAFE_STOP_DIST
             if span <= 0.0:
                 return 0.0
-            scale = (eff - SAFE_STOP_DIST) / span
+            scale = (front_clearance - SAFE_STOP_DIST) / span
             return max(MIN_SAFE_SPEED, requested * scale)
         return requested
 
