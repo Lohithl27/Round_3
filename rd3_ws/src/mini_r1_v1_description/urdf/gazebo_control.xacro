@@ -24,7 +24,7 @@
             <max_wheel_torque>50</max_wheel_torque>
             <max_linear_acceleration>1.5</max_linear_acceleration>
 
-            <topic>cmd_vel</topic> 
+            <topic>/cmd_vel</topic> 
             <publish_odom>true</publish_odom>
             <publish_odom_tf>true</publish_odom_tf>
             <publish_wheel_tf>true</publish_wheel_tf>
