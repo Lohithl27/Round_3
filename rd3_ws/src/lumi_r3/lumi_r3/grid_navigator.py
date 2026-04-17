@@ -58,6 +58,7 @@ SAFE_STOP_DIST     = 0.22
 SAFE_SLOW_DIST     = 0.40
 AVOID_TRIGGER_DIST = 0.40
 MIN_SAFE_SPEED     = 0.05
+SIDE_SECTOR_WEIGHT = 0.70
 
 
 # ── NAVIGATION WAYPOINTS ──────────────────────────────────────────────────────
@@ -435,7 +436,11 @@ class GridNavigator(Node):
             self._follow_waypoints()
 
     def _front_clearance(self):
-        return min(self.sec['F'], self.sec['FL'] * 0.7, self.sec['FR'] * 0.7)
+        return min(
+            self.sec['F'],
+            self.sec['FL'] * SIDE_SECTOR_WEIGHT,
+            self.sec['FR'] * SIDE_SECTOR_WEIGHT
+        )
 
     def _safe_forward_speed(self, requested, eff=None):
         if requested <= 0.0 or not self.lidar_ok:
@@ -447,7 +452,7 @@ class GridNavigator(Node):
         if eff < SAFE_SLOW_DIST:
             span = SAFE_SLOW_DIST - SAFE_STOP_DIST
             if span <= 0.0:
-                return requested
+                return 0.0
             scale = (eff - SAFE_STOP_DIST) / span
             return max(MIN_SAFE_SPEED, requested * scale)
         return requested
