@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="MINI_R1" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:property name="package_name" value = "mini_r1_v1_description"/>
+    <xacro:arg name="use_control" default="false"/>
+       
+    <xacro:include filename="$(find mini_r1_v1_description)/urdf/robot_core.xacro"/>
+
+    <!-- Cotains the properties of the Lidar, Cam and Gazebo Control Files -->
+    <xacro:include filename="$(find mini_r1_v1_description)/urdf/lidar.xacro"/>
+    <xacro:include filename="$(find mini_r1_v1_description)/urdf/sensors.xacro"/>
+    <xacro:include filename="$(find mini_r1_v1_description)/urdf/gazebo_control.xacro"/>
+    <xacro:if value="$(eval use_control)">
+    </xacro:if>
+
+
+    <xacro:unless value="$(eval use_control)">
+            
+    </xacro:unless>
+</robot>

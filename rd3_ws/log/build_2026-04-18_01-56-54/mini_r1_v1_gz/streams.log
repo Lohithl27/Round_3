@@ -1,0 +1,24 @@
+[0.027s] Invoking command in '/home/rino/rd3_ws/build/mini_r1_v1_gz': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rino/rd3_ws/build/mini_r1_v1_gz -- -j8 -l8
+[0.114s] Invoked command in '/home/rino/rd3_ws/build/mini_r1_v1_gz' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/rino/rd3_ws/build/mini_r1_v1_gz -- -j8 -l8
+[0.119s] Invoking command in '/home/rino/rd3_ws/build/mini_r1_v1_gz': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rino/rd3_ws/build/mini_r1_v1_gz
+[0.132s] -- Install configuration: ""
+[0.135s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/launch
+[0.135s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/launch/sim.launch.py
+[0.136s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/config
+[0.136s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/config/ros_gz_bridge.yaml
+[0.138s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/ament_index/resource_index/package_run_dependencies/mini_r1_v1_gz
+[0.139s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/ament_index/resource_index/parent_prefix_path/mini_r1_v1_gz
+[0.139s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/environment/ament_prefix_path.sh
+[0.139s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/environment/ament_prefix_path.dsv
+[0.140s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/environment/path.sh
+[0.140s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/environment/path.dsv
+[0.140s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/local_setup.bash
+[0.141s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/local_setup.sh
+[0.141s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/local_setup.zsh
+[0.141s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/local_setup.dsv
+[0.141s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/package.dsv
+[0.141s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/ament_index/resource_index/packages/mini_r1_v1_gz
+[0.141s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/cmake/mini_r1_v1_gzConfig.cmake
+[0.141s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/cmake/mini_r1_v1_gzConfig-version.cmake
+[0.141s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/package.xml
+[0.168s] Invoked command in '/home/rino/rd3_ws/build/mini_r1_v1_gz' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/rino/rd3_ws/build/mini_r1_v1_gz

@@ -1,0 +1,4 @@
+source;share/lumi_r3/local_setup.bash
+source;share/lumi_r3/local_setup.dsv
+source;share/lumi_r3/local_setup.sh
+source;share/lumi_r3/local_setup.zsh

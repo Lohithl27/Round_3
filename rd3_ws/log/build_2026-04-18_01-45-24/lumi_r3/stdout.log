@@ -1,0 +1,114 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Found rclpy: 3.3.21 (/opt/ros/humble/share/rclpy/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/rino/rd3_ws/build/lumi_r3
+Built target ament_cmake_python_copy_lumi_r3
+running egg_info
+creating lumi_r3.egg-info
+writing lumi_r3.egg-info/PKG-INFO
+writing dependency_links to lumi_r3.egg-info/dependency_links.txt
+writing top-level names to lumi_r3.egg-info/top_level.txt
+writing manifest file 'lumi_r3.egg-info/SOURCES.txt'
+reading manifest file 'lumi_r3.egg-info/SOURCES.txt'
+writing manifest file 'lumi_r3.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_lumi_r3_egg
+-- Install configuration: ""
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/environment/pythonpath.sh
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/environment/pythonpath.dsv
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3-1.0.0-py3.10.egg-info
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3-1.0.0-py3.10.egg-info/SOURCES.txt
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3-1.0.0-py3.10.egg-info/PKG-INFO
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3-1.0.0-py3.10.egg-info/dependency_links.txt
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3-1.0.0-py3.10.egg-info/top_level.txt
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/grid_navigator.py
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/tile_detector.py
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/__init__.py
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/apriltag_detector.py
+Listing '/home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3'...
+Compiling '/home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/__init__.py'...
+Compiling '/home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/apriltag_detector.py'...
+Compiling '/home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/grid_navigator.py'...
+Compiling '/home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/tile_detector.py'...
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/lib/lumi_r3/apriltag_detector.py
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/lib/lumi_r3/tile_detector.py
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/lib/lumi_r3/grid_navigator.py
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/worlds
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/worlds/grid_world_r3.sdf
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/config
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/config/slam_r3.yaml
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/config/ekf_r3.yaml
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/launch
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/launch/r3_challenge.launch.py
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/rviz
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r4_c1.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r3_c4.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r2_c2.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r1_c0.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r3_c2.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r2_c1.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/orange.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r3_c0.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r4_c2.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/start.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r1_c4.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r1_c1.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r3_c3.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r3_c1.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r0_c0.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/default.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r4_c3.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r1_c2.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/stop.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r2_c0.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r2_c3.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r2_c4.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r1_c3.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/green.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r0_c4.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r0_c1.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_4_padded.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_0.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_4.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_3_padded.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_2.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_1_padded.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_1.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_2_padded.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_0_padded.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_3.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r0_c3.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r0_c2.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r4_c0.png
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/ament_index/resource_index/package_run_dependencies/lumi_r3
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/ament_index/resource_index/parent_prefix_path/lumi_r3
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/environment/ament_prefix_path.sh
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/environment/ament_prefix_path.dsv
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/environment/path.sh
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/environment/path.dsv
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/local_setup.bash
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/local_setup.sh
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/local_setup.zsh
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/local_setup.dsv
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/package.dsv
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/ament_index/resource_index/packages/lumi_r3
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/cmake/lumi_r3Config.cmake
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/cmake/lumi_r3Config-version.cmake
+-- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/package.xml

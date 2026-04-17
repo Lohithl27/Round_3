@@ -1,0 +1,4 @@
+source;share/mini_r1_v1_gz/local_setup.bash
+source;share/mini_r1_v1_gz/local_setup.dsv
+source;share/mini_r1_v1_gz/local_setup.sh
+source;share/mini_r1_v1_gz/local_setup.zsh

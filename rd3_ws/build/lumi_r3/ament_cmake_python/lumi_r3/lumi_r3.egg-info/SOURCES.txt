@@ -1,0 +1,9 @@
+setup.py
+lumi_r3/__init__.py
+lumi_r3/apriltag_detector.py
+lumi_r3/grid_navigator.py
+lumi_r3/tile_detector.py
+lumi_r3.egg-info/PKG-INFO
+lumi_r3.egg-info/SOURCES.txt
+lumi_r3.egg-info/dependency_links.txt
+lumi_r3.egg-info/top_level.txt
