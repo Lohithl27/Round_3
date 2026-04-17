@@ -1,0 +1,64 @@
+[0.025s] Invoking command in '/home/rino/rd3_ws/build/mini_r1_v1_gz': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake /home/rino/rd3_ws/src/mini_r1_v1_gz -DCMAKE_INSTALL_PREFIX=/home/rino/rd3_ws/install/mini_r1_v1_gz
+[0.130s] -- The C compiler identification is GNU 11.4.0
+[0.231s] -- The CXX compiler identification is GNU 11.4.0
+[0.247s] -- Detecting C compiler ABI info
+[0.378s] -- Detecting C compiler ABI info - done
+[0.387s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.389s] -- Detecting C compile features
+[0.389s] -- Detecting C compile features - done
+[0.393s] -- Detecting CXX compiler ABI info
+[0.543s] -- Detecting CXX compiler ABI info - done
+[0.554s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.554s] -- Detecting CXX compile features
+[0.554s] -- Detecting CXX compile features - done
+[0.561s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.834s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.023s] -- Found ros_gz_sim: 0.244.23 (/opt/ros/humble/share/ros_gz_sim/cmake)
+[1.136s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.145s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.163s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.195s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.234s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.332s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.337s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.541s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.598s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.677s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.700s] -- Looking for pthread.h
+[1.859s] -- Looking for pthread.h - found
+[1.860s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.000s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.001s] -- Found Threads: TRUE  
+[2.080s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.214s] -- Added test 'flake8' to check Python code syntax and style conventions
+[2.215s] -- Added test 'lint_cmake' to check CMake code style
+[2.215s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[2.217s] -- Added test 'xmllint' to check XML markup files
+[2.225s] -- Configuring done
+[2.237s] -- Generating done
+[2.241s] -- Build files have been written to: /home/rino/rd3_ws/build/mini_r1_v1_gz
+[2.260s] Invoked command in '/home/rino/rd3_ws/build/mini_r1_v1_gz' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake /home/rino/rd3_ws/src/mini_r1_v1_gz -DCMAKE_INSTALL_PREFIX=/home/rino/rd3_ws/install/mini_r1_v1_gz
+[2.266s] Invoking command in '/home/rino/rd3_ws/build/mini_r1_v1_gz': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake --build /home/rino/rd3_ws/build/mini_r1_v1_gz -- -j8 -l8
+[2.348s] Invoked command in '/home/rino/rd3_ws/build/mini_r1_v1_gz' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake --build /home/rino/rd3_ws/build/mini_r1_v1_gz -- -j8 -l8
+[2.371s] Invoking command in '/home/rino/rd3_ws/build/mini_r1_v1_gz': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake --install /home/rino/rd3_ws/build/mini_r1_v1_gz
+[2.383s] -- Install configuration: ""
+[2.383s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/launch
+[2.383s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/launch/sim.launch.py
+[2.383s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/config
+[2.383s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/config/ros_gz_bridge.yaml
+[2.384s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/ament_index/resource_index/package_run_dependencies/mini_r1_v1_gz
+[2.384s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/ament_index/resource_index/parent_prefix_path/mini_r1_v1_gz
+[2.385s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/environment/ament_prefix_path.sh
+[2.385s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/environment/ament_prefix_path.dsv
+[2.385s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/environment/path.sh
+[2.386s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/environment/path.dsv
+[2.386s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/local_setup.bash
+[2.386s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/local_setup.sh
+[2.386s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/local_setup.zsh
+[2.387s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/local_setup.dsv
+[2.387s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/package.dsv
+[2.387s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/ament_index/resource_index/packages/mini_r1_v1_gz
+[2.388s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/cmake/mini_r1_v1_gzConfig.cmake
+[2.388s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/cmake/mini_r1_v1_gzConfig-version.cmake
+[2.388s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/package.xml
+[2.391s] Invoked command in '/home/rino/rd3_ws/build/mini_r1_v1_gz' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake --install /home/rino/rd3_ws/build/mini_r1_v1_gz

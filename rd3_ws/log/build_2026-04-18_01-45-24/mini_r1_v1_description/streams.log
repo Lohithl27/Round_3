@@ -1,0 +1,101 @@
+[0.028s] Invoking command in '/home/rino/rd3_ws/build/mini_r1_v1_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake /home/rino/rd3_ws/src/mini_r1_v1_description -DCMAKE_INSTALL_PREFIX=/home/rino/rd3_ws/install/mini_r1_v1_description
+[0.140s] -- The C compiler identification is GNU 11.4.0
+[0.238s] -- The CXX compiler identification is GNU 11.4.0
+[0.252s] -- Detecting C compiler ABI info
+[0.389s] -- Detecting C compiler ABI info - done
+[0.401s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.401s] -- Detecting C compile features
+[0.403s] -- Detecting C compile features - done
+[0.406s] -- Detecting CXX compiler ABI info
+[0.556s] -- Detecting CXX compiler ABI info - done
+[0.564s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.565s] -- Detecting CXX compile features
+[0.565s] -- Detecting CXX compile features - done
+[0.571s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.850s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.034s] -- Found ros_gz_bridge: 0.244.23 (/opt/ros/humble/share/ros_gz_bridge/cmake)
+[1.135s] -- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.146s] -- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.160s] -- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.179s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.214s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.302s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.309s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.501s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.553s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.630s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.646s] -- Looking for pthread.h
+[1.811s] -- Looking for pthread.h - found
+[1.812s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.957s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.958s] -- Found Threads: TRUE  
+[2.153s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") 
+[2.314s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[2.875s] -- Found ros_gz_sim: 0.244.23 (/opt/ros/humble/share/ros_gz_sim/cmake)
+[2.880s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[3.012s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.013s] -- Added test 'lint_cmake' to check CMake code style
+[3.014s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[3.017s] -- Added test 'xmllint' to check XML markup files
+[3.026s] -- Configuring done
+[3.037s] -- Generating done
+[3.043s] -- Build files have been written to: /home/rino/rd3_ws/build/mini_r1_v1_description
+[3.071s] Invoked command in '/home/rino/rd3_ws/build/mini_r1_v1_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake /home/rino/rd3_ws/src/mini_r1_v1_description -DCMAKE_INSTALL_PREFIX=/home/rino/rd3_ws/install/mini_r1_v1_description
+[3.078s] Invoking command in '/home/rino/rd3_ws/build/mini_r1_v1_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake --build /home/rino/rd3_ws/build/mini_r1_v1_description -- -j8 -l8
+[3.162s] Invoked command in '/home/rino/rd3_ws/build/mini_r1_v1_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake --build /home/rino/rd3_ws/build/mini_r1_v1_description -- -j8 -l8
+[3.165s] Invoking command in '/home/rino/rd3_ws/build/mini_r1_v1_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake --install /home/rino/rd3_ws/build/mini_r1_v1_description
+[3.184s] -- Install configuration: ""
+[3.184s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/launch
+[3.185s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/launch/rsp.launch.py
+[3.185s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/urdf
+[3.185s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/urdf/gazebo_control.xacro
+[3.185s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/urdf/robot_core.xacro
+[3.185s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/urdf/sensors.xacro
+[3.185s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/urdf/lidar.xacro
+[3.186s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/urdf/mini_r1.urdf.xacro
+[3.186s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes
+[3.186s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/TR_LF.STL
+[3.189s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/TR_RF.STL
+[3.194s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/TR_RR.STL
+[3.196s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/CAM.STL
+[3.198s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/TR_LR.STL
+[3.200s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/LIDAR.STL
+[3.214s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/IMU.STL
+[3.215s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/base_link.STL
+[3.219s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/worlds
+[3.219s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/worlds/empty.sdf
+[3.219s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/config
+[3.220s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/config/joint_names_MINI_R1_v1.yaml
+[3.220s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/launch
+[3.220s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/launch/rsp.launch.py
+[3.220s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes
+[3.220s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/TR_LF.STL
+[3.221s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/TR_RF.STL
+[3.221s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/TR_RR.STL
+[3.221s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/CAM.STL
+[3.221s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/TR_LR.STL
+[3.222s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/LIDAR.STL
+[3.222s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/IMU.STL
+[3.222s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/meshes/base_link.STL
+[3.222s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/urdf
+[3.222s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/urdf/gazebo_control.xacro
+[3.222s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/urdf/robot_core.xacro
+[3.223s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/urdf/sensors.xacro
+[3.223s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/urdf/lidar.xacro
+[3.223s] -- Up-to-date: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/urdf/mini_r1.urdf.xacro
+[3.223s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/ament_index/resource_index/package_run_dependencies/mini_r1_v1_description
+[3.223s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/ament_index/resource_index/parent_prefix_path/mini_r1_v1_description
+[3.223s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/environment/ament_prefix_path.sh
+[3.223s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/environment/ament_prefix_path.dsv
+[3.224s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/environment/path.sh
+[3.224s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/environment/path.dsv
+[3.224s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/local_setup.bash
+[3.224s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/local_setup.sh
+[3.224s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/local_setup.zsh
+[3.224s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/local_setup.dsv
+[3.225s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/package.dsv
+[3.226s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/ament_index/resource_index/packages/mini_r1_v1_description
+[3.226s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/cmake/mini_r1_v1_descriptionConfig.cmake
+[3.226s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/cmake/mini_r1_v1_descriptionConfig-version.cmake
+[3.226s] -- Installing: /home/rino/rd3_ws/install/mini_r1_v1_description/share/mini_r1_v1_description/package.xml
+[3.231s] Invoked command in '/home/rino/rd3_ws/build/mini_r1_v1_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake --install /home/rino/rd3_ws/build/mini_r1_v1_description

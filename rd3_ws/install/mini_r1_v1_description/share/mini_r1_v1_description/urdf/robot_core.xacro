@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="package_name" value="mini_r1_v1_description"/>
+
+    <material name="deep_black">
+        <color rgba="0.01 0.01 0.01 1" />
+    </material>
+
+    <xacro:property name="gazebo_black_material">
+        <visual>
+            <material>
+                <ambient>0.01 0.01 0.01 1</ambient>
+                <diffuse>0.01 0.01 0.01 1</diffuse>
+                <specular>0.1 0.1 0.1 1</specular>
+                <emissive>0 0 0 0</emissive>
+            </material>
+        </visual>
+    </xacro:property>
+
+    <link name="base_link">
+        <inertial>
+            <origin xyz="-0.00145187820034053 -2.01021238721632E-15 0.0495004152298996" rpy="0 0 0" />
+            <mass value="1.17292187770557" />
+            <inertia ixx="0.00874333325815053" ixy="-9.13481922680815E-15" ixz="4.89986585106572E-05" iyy="0.0153571997460609" iyz="6.70376821079785E-17" izz="0.0203494315645829" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file://$(find ${package_name})/meshes/base_link.STL" />
+            </geometry>
+            <material name="deep_black"/>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="file://$(find ${package_name})/meshes/base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference="base_link">
+        <xacro:insert_block name="gazebo_black_material" />
+        <mu1>0.2</mu1>
+        <mu2>0.2</mu2>
+        <selfCollide>true</selfCollide>
+        <gravity>true</gravity>
+    </gazebo>
+
+    <xacro:macro name="wheel_link" params="name mass ixx ixy ixz iyy iyz izz joint_origin_xyz joint_origin_rpy='0 0 0'">
+        <link name="${name}">
+            <inertial>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <mass value="${mass}" />
+                <inertia ixx="${ixx}" ixy="${ixy}" ixz="${ixz}" iyy="${iyy}" iyz="${iyz}" izz="${izz}" />
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="file://$(find ${package_name})/meshes/${name}.STL" />
+                </geometry>
+                <material name="deep_black"/>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0" />
+                <geometry>
+                    <mesh filename="file://$(find ${package_name})/meshes/${name}.STL" />
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="J_${name}" type="continuous">
+            <origin xyz="${joint_origin_xyz}" rpy="${joint_origin_rpy}" />
+            <parent link="base_link" />
+            <child link="${name}" />
+            <axis xyz="0 1 0" />
+        </joint>
+
+        <gazebo reference="${name}">
+            <xacro:insert_block name="gazebo_black_material" />
+            <mu1>0.2</mu1>
+            <mu2>0.2</mu2>
+            <selfCollide>true</selfCollide>
+        </gazebo>
+    </xacro:macro>
+
+    <xacro:wheel_link name="TR_RF" 
+        mass="0.30044" 
+        ixx="0.00051575" ixy="2.2786E-09" ixz="-1.1409E-08" 
+        iyy="0.00086728" iyz="-1.8296E-10" izz="0.00051569" 
+        joint_origin_xyz="0.13 -0.11371 0.0278" />
+
+    <xacro:wheel_link name="TR_RR" 
+        mass="0.30043976" 
+        ixx="0.000515747" ixy="2.2853E-09" ixz="-5.4383E-09" 
+        iyy="0.000867277" iyz="4.9031E-11" izz="0.000515687" 
+        joint_origin_xyz="-0.13 -0.11269 0.0278" />
+
+    <xacro:wheel_link name="TR_LR" 
+        mass="0.30365826" 
+        ixx="0.00052403" ixy="-2.2895E-09" ixz="8.5108E-09" 
+        iyy="0.000880026" iyz="-6.8878E-11" izz="0.00052397" 
+        joint_origin_xyz="-0.13 0.11371 0.0278" />
+
+    <xacro:wheel_link name="TR_LF" 
+        mass="0.30044" 
+        ixx="0.00051575" ixy="2.2786E-09" ixz="-1.1409E-08" 
+        iyy="0.00086728" iyz="-1.8296E-10" izz="0.00051569" 
+        joint_origin_xyz="0.13 0.11371 0.0278" />
+
+</robot>

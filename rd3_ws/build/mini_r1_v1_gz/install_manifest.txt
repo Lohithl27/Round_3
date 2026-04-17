@@ -1,0 +1,17 @@
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/launch/sim.launch.py
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/config/ros_gz_bridge.yaml
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/ament_index/resource_index/package_run_dependencies/mini_r1_v1_gz
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/ament_index/resource_index/parent_prefix_path/mini_r1_v1_gz
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/environment/ament_prefix_path.sh
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/environment/ament_prefix_path.dsv
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/environment/path.sh
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/environment/path.dsv
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/local_setup.bash
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/local_setup.sh
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/local_setup.zsh
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/local_setup.dsv
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/package.dsv
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/ament_index/resource_index/packages/mini_r1_v1_gz
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/cmake/mini_r1_v1_gzConfig.cmake
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/cmake/mini_r1_v1_gzConfig-version.cmake
+/home/rino/rd3_ws/install/mini_r1_v1_gz/share/mini_r1_v1_gz/package.xml

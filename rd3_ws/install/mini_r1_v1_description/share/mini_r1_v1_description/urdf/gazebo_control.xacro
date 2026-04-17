@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="M_PI" value="3.14159265358979323846"/>
+    <xacro:property name="M_PI_2" value="1.57079632679489661923"/>
+    <xacro:property name="wheel_separation" value="0.2885"/>
+    <xacro:property name="wheel_radius" value="0.065"/>
+    <xacro:property name="wheel_width" value="0.051"/>
+    <xacro:property name="wheel_mass" value="0.13"/>
+    
+    <gazebo>
+        <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+            <odom_publisher_frequency>50</odom_publisher_frequency>
+            
+            <left_joint>J_TR_LF</left_joint>
+            <left_joint>J_TR_LR</left_joint>
+
+            <right_joint>J_TR_RF</right_joint>
+            <right_joint>J_TR_RR</right_joint>
+
+            <wheel_separation>${wheel_separation}</wheel_separation>
+            <wheel_radius>${wheel_radius}</wheel_radius>
+
+            <max_wheel_torque>50</max_wheel_torque>
+            <max_linear_acceleration>1.5</max_linear_acceleration>
+
+            <topic>cmd_vel</topic> 
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf>
+            
+            <tf_topic>/r1_mini/odom_tf</tf_topic> 
+            <odom_topic>/r1_mini/odom</odom_topic> 
+            <frame_id>odom</frame_id>
+            <child_frame_id>base_link</child_frame_id>
+        </plugin>
+
+        <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+            <update_rate>100</update_rate>
+            <topic>/r1_mini/joint_states</topic> 
+            <joint_name>J_TR_LF</joint_name>
+            <joint_name>J_TR_LR</joint_name>
+            <joint_name>J_TR_RF</joint_name>
+            <joint_name>J_TR_RR</joint_name>
+        </plugin>
+    </gazebo>
+
+</robot>

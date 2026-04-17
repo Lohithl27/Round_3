@@ -1,0 +1,120 @@
+[0.024s] Invoking command in '/home/rino/rd3_ws/build/lumi_r3': CMAKE_PREFIX_PATH=/home/rino/rd3_ws/install/mini_r1_v1_gz:/home/rino/rd3_ws/install/mini_r1_v1_description:/home/rino/rd3_ws/install/lumi_r3:/home/rino/ros2_ws/install/warenav_r15:/home/rino/ros2_ws/install/mini_r1_v1_gz:/home/rino/ros2_ws/install/mini_r1_v1_description:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake /home/rino/rd3_ws/src/lumi_r3 -DCMAKE_INSTALL_PREFIX=/home/rino/rd3_ws/install/lumi_r3
+[0.131s] -- The C compiler identification is GNU 11.4.0
+[0.225s] -- The CXX compiler identification is GNU 11.4.0
+[0.237s] -- Detecting C compiler ABI info
+[0.364s] -- Detecting C compiler ABI info - done
+[0.374s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.374s] -- Detecting C compile features
+[0.375s] -- Detecting C compile features - done
+[0.382s] -- Detecting CXX compiler ABI info
+[0.525s] -- Detecting CXX compiler ABI info - done
+[0.538s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.538s] -- Detecting CXX compile features
+[0.539s] -- Detecting CXX compile features - done
+[0.545s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.774s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.936s] -- Found rclpy: 3.3.21 (/opt/ros/humble/share/rclpy/cmake)
+[1.170s] -- Configuring done
+[1.177s] -- Generating done
+[1.181s] -- Build files have been written to: /home/rino/rd3_ws/build/lumi_r3
+[1.194s] Invoked command in '/home/rino/rd3_ws/build/lumi_r3' returned '0': CMAKE_PREFIX_PATH=/home/rino/rd3_ws/install/mini_r1_v1_gz:/home/rino/rd3_ws/install/mini_r1_v1_description:/home/rino/rd3_ws/install/lumi_r3:/home/rino/ros2_ws/install/warenav_r15:/home/rino/ros2_ws/install/mini_r1_v1_gz:/home/rino/ros2_ws/install/mini_r1_v1_description:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake /home/rino/rd3_ws/src/lumi_r3 -DCMAKE_INSTALL_PREFIX=/home/rino/rd3_ws/install/lumi_r3
+[1.196s] Invoking command in '/home/rino/rd3_ws/build/lumi_r3': CMAKE_PREFIX_PATH=/home/rino/rd3_ws/install/mini_r1_v1_gz:/home/rino/rd3_ws/install/mini_r1_v1_description:/home/rino/rd3_ws/install/lumi_r3:/home/rino/ros2_ws/install/warenav_r15:/home/rino/ros2_ws/install/mini_r1_v1_gz:/home/rino/ros2_ws/install/mini_r1_v1_description:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake --build /home/rino/rd3_ws/build/lumi_r3 -- -j8 -l8
+[1.311s] Built target ament_cmake_python_copy_lumi_r3
+[1.716s] running egg_info
+[1.717s] creating lumi_r3.egg-info
+[1.718s] writing lumi_r3.egg-info/PKG-INFO
+[1.718s] writing dependency_links to lumi_r3.egg-info/dependency_links.txt
+[1.719s] writing top-level names to lumi_r3.egg-info/top_level.txt
+[1.719s] writing manifest file 'lumi_r3.egg-info/SOURCES.txt'
+[1.724s] reading manifest file 'lumi_r3.egg-info/SOURCES.txt'
+[1.725s] writing manifest file 'lumi_r3.egg-info/SOURCES.txt'
+[1.802s] Built target ament_cmake_python_build_lumi_r3_egg
+[1.824s] Invoked command in '/home/rino/rd3_ws/build/lumi_r3' returned '0': CMAKE_PREFIX_PATH=/home/rino/rd3_ws/install/mini_r1_v1_gz:/home/rino/rd3_ws/install/mini_r1_v1_description:/home/rino/rd3_ws/install/lumi_r3:/home/rino/ros2_ws/install/warenav_r15:/home/rino/ros2_ws/install/mini_r1_v1_gz:/home/rino/ros2_ws/install/mini_r1_v1_description:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake --build /home/rino/rd3_ws/build/lumi_r3 -- -j8 -l8
+[1.828s] Invoking command in '/home/rino/rd3_ws/build/lumi_r3': CMAKE_PREFIX_PATH=/home/rino/rd3_ws/install/mini_r1_v1_gz:/home/rino/rd3_ws/install/mini_r1_v1_description:/home/rino/rd3_ws/install/lumi_r3:/home/rino/ros2_ws/install/warenav_r15:/home/rino/ros2_ws/install/mini_r1_v1_gz:/home/rino/ros2_ws/install/mini_r1_v1_description:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake --install /home/rino/rd3_ws/build/lumi_r3
+[1.843s] -- Install configuration: ""
+[1.844s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/environment/pythonpath.sh
+[1.844s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/environment/pythonpath.dsv
+[1.844s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3-1.0.0-py3.10.egg-info
+[1.844s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3-1.0.0-py3.10.egg-info/SOURCES.txt
+[1.848s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3-1.0.0-py3.10.egg-info/PKG-INFO
+[1.848s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3-1.0.0-py3.10.egg-info/dependency_links.txt
+[1.848s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3-1.0.0-py3.10.egg-info/top_level.txt
+[1.849s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3
+[1.850s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/grid_navigator.py
+[1.850s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/tile_detector.py
+[1.851s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/__init__.py
+[1.851s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/apriltag_detector.py
+[1.902s] Listing '/home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3'...
+[1.903s] Compiling '/home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/__init__.py'...
+[1.903s] Compiling '/home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/apriltag_detector.py'...
+[1.903s] Compiling '/home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/grid_navigator.py'...
+[1.903s] Compiling '/home/rino/rd3_ws/install/lumi_r3/local/lib/python3.10/dist-packages/lumi_r3/tile_detector.py'...
+[1.912s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/lib/lumi_r3/apriltag_detector.py
+[1.912s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/lib/lumi_r3/tile_detector.py
+[1.912s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/lib/lumi_r3/grid_navigator.py
+[1.913s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/worlds
+[1.913s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/worlds/grid_world_r3.sdf
+[1.913s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/config
+[1.913s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/config/slam_r3.yaml
+[1.913s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/config/ekf_r3.yaml
+[1.913s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/launch
+[1.913s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/launch/r3_challenge.launch.py
+[1.913s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/rviz
+[1.913s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials
+[1.913s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures
+[1.913s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r4_c1.png
+[1.914s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r3_c4.png
+[1.914s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r2_c2.png
+[1.917s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r1_c0.png
+[1.917s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r3_c2.png
+[1.917s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r2_c1.png
+[1.918s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/orange.png
+[1.919s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r3_c0.png
+[1.919s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r4_c2.png
+[1.920s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/start.png
+[1.920s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r1_c4.png
+[1.921s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r1_c1.png
+[1.921s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r3_c3.png
+[1.922s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r3_c1.png
+[1.923s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r0_c0.png
+[1.923s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/default.png
+[1.924s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r4_c3.png
+[1.924s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r1_c2.png
+[1.925s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/stop.png
+[1.927s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r2_c0.png
+[1.927s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r2_c3.png
+[1.928s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r2_c4.png
+[1.928s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r1_c3.png
+[1.929s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/green.png
+[1.929s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r0_c4.png
+[1.930s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r0_c1.png
+[1.930s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags
+[1.931s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_4_padded.png
+[1.931s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_0.png
+[1.931s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_4.png
+[1.931s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_3_padded.png
+[1.932s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_2.png
+[1.932s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_1_padded.png
+[1.932s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_1.png
+[1.932s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_2_padded.png
+[1.933s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_0_padded.png
+[1.933s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/apriltags/tag_3.png
+[1.933s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r0_c3.png
+[1.934s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r0_c2.png
+[1.934s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/materials/textures/tile_r4_c0.png
+[1.934s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/ament_index/resource_index/package_run_dependencies/lumi_r3
+[1.934s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/ament_index/resource_index/parent_prefix_path/lumi_r3
+[1.935s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/environment/ament_prefix_path.sh
+[1.935s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/environment/ament_prefix_path.dsv
+[1.936s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/environment/path.sh
+[1.936s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/environment/path.dsv
+[1.936s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/local_setup.bash
+[1.937s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/local_setup.sh
+[1.937s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/local_setup.zsh
+[1.937s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/local_setup.dsv
+[1.937s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/package.dsv
+[1.937s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/ament_index/resource_index/packages/lumi_r3
+[1.937s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/cmake/lumi_r3Config.cmake
+[1.938s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/cmake/lumi_r3Config-version.cmake
+[1.938s] -- Installing: /home/rino/rd3_ws/install/lumi_r3/share/lumi_r3/package.xml
+[1.943s] Invoked command in '/home/rino/rd3_ws/build/lumi_r3' returned '0': CMAKE_PREFIX_PATH=/home/rino/rd3_ws/install/mini_r1_v1_gz:/home/rino/rd3_ws/install/mini_r1_v1_description:/home/rino/rd3_ws/install/lumi_r3:/home/rino/ros2_ws/install/warenav_r15:/home/rino/ros2_ws/install/mini_r1_v1_gz:/home/rino/ros2_ws/install/mini_r1_v1_description:/home/rino/ros2_ws/install/decision_pkg:/home/rino/hack_ws/src/explorer_pkg/install/explorer_pkg:/home/rino/hack_ws/install/explorer_pkg:/opt/ros/humble /usr/bin/cmake --install /home/rino/rd3_ws/build/lumi_r3
