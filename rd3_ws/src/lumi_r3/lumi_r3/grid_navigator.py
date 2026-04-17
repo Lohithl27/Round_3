@@ -440,8 +440,7 @@ class GridNavigator(Node):
             return 0.0
         if eff < SAFE_SLOW_DIST:
             scale = (eff - SAFE_STOP_DIST) / (SAFE_SLOW_DIST - SAFE_STOP_DIST)
-            clamped_scale = min(1.0, max(0.0, scale))
-            return max(0.05, requested * clamped_scale)
+            return max(0.05, requested * scale)
         return requested
 
     # ── Mission complete ──────────────────────────────────────────────────────
