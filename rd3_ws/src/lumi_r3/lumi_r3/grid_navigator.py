@@ -57,6 +57,7 @@ TAG_ACTIONS = {
 SAFE_STOP_DIST     = 0.22
 SAFE_SLOW_DIST     = 0.40
 AVOID_TRIGGER_DIST = 0.40
+MIN_SAFE_SPEED     = 0.05
 
 
 # ── NAVIGATION WAYPOINTS ──────────────────────────────────────────────────────
@@ -150,6 +151,7 @@ class GridNavigator(Node):
         self.started = False
         self.done    = False
         self.start_t = None
+        self.waiting_for_green_logged = False
 
         # AprilTag state
         self.visited_tags = set()
@@ -197,9 +199,12 @@ class GridNavigator(Node):
     def _start_once(self):
         if not self.started:
             if self.floor_colour != 'green':
-                self.get_logger().info(
-                    f'Waiting on GREEN start tile (camera sees: {self.floor_colour})')
+                if not self.waiting_for_green_logged:
+                    self.get_logger().info(
+                        f'Waiting on GREEN start tile (camera sees: {self.floor_colour})')
+                    self.waiting_for_green_logged = True
                 return
+            self.waiting_for_green_logged = False
             self.started = True
             self.start_t = time.time()
             self.mode    = Mode.WAYPOINTS
@@ -440,7 +445,7 @@ class GridNavigator(Node):
             return 0.0
         if eff < SAFE_SLOW_DIST:
             scale = (eff - SAFE_STOP_DIST) / (SAFE_SLOW_DIST - SAFE_STOP_DIST)
-            return max(0.05, requested * scale)
+            return max(MIN_SAFE_SPEED, requested * scale)
         return requested
 
     # ── Mission complete ──────────────────────────────────────────────────────
