@@ -380,7 +380,7 @@ class GridNavigator(Node):
         elif abs(yaw_err) < 0.60:
             cmd.linear.x = 0.08
         # else: rotate in place
-        cmd.linear.x = self._safe_forward_speed(cmd.linear.x)
+        cmd.linear.x = self._safe_forward_speed(cmd.linear.x, eff)
 
         self.vel.publish(cmd)
 
@@ -425,7 +425,7 @@ class GridNavigator(Node):
 
         if col == target:
             cmd = Twist()
-            cmd.linear.x = self._safe_forward_speed(0.20)
+            cmd.linear.x = self._safe_forward_speed(0.20, eff)
             # Small corrections to stay centered on colour patch
             if self.sec['L'] < 0.40: cmd.angular.z = -0.20
             elif self.sec['R'] < 0.40: cmd.angular.z = 0.20
@@ -437,14 +437,18 @@ class GridNavigator(Node):
     def _front_clearance(self):
         return min(self.sec['F'], self.sec['FL'] * 0.7, self.sec['FR'] * 0.7)
 
-    def _safe_forward_speed(self, requested):
+    def _safe_forward_speed(self, requested, eff=None):
         if requested <= 0.0 or not self.lidar_ok:
             return requested
-        eff = self._front_clearance()
+        if eff is None:
+            eff = self._front_clearance()
         if eff < SAFE_STOP_DIST:
             return 0.0
         if eff < SAFE_SLOW_DIST:
-            scale = (eff - SAFE_STOP_DIST) / (SAFE_SLOW_DIST - SAFE_STOP_DIST)
+            span = SAFE_SLOW_DIST - SAFE_STOP_DIST
+            if span <= 0.0:
+                return requested
+            scale = (eff - SAFE_STOP_DIST) / span
             return max(MIN_SAFE_SPEED, requested * scale)
         return requested
 
