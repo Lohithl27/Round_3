@@ -53,6 +53,11 @@ TAG_ACTIONS = {
     3: ('Tag5_rightwall_low', 'follow_orange'),  # Tag 5 → follow orange
 }
 
+# ── Safety distances (metres) ─────────────────────────────────────────────────
+SAFE_STOP_DIST    = 0.22
+SAFE_SLOW_DIST    = 0.40
+AVOID_TRIGGER_DIST = 0.35
+
 
 # ── NAVIGATION WAYPOINTS ──────────────────────────────────────────────────────
 # Complete maze path derived from arena map + wall analysis.
@@ -191,10 +196,14 @@ class GridNavigator(Node):
     # ── Startup ───────────────────────────────────────────────────────────────
     def _start_once(self):
         if not self.started:
+            if self.floor_colour != 'green':
+                self.get_logger().info(
+                    f'Waiting on GREEN start tile (camera sees: {self.floor_colour})')
+                return
             self.started = True
             self.start_t = time.time()
             self.mode    = Mode.WAYPOINTS
-            self.get_logger().info('MISSION START — following waypoints')
+            self.get_logger().info('MISSION START (GREEN confirmed) — following waypoints')
 
     # ── Callbacks ─────────────────────────────────────────────────────────────
     def cb_odom(self, msg):
@@ -348,8 +357,8 @@ class GridNavigator(Node):
             return
 
         # Obstacle avoidance override
-        eff = min(self.sec['F'], self.sec['FL']*0.7, self.sec['FR']*0.7)
-        if eff < 0.30 and self.lidar_ok:
+        eff = self._front_clearance()
+        if eff < AVOID_TRIGGER_DIST and self.lidar_ok:
             cmd = Twist()
             cmd.angular.z = 0.6 if self.sec['L'] >= self.sec['R'] else -0.6
             self.vel.publish(cmd)
@@ -366,6 +375,7 @@ class GridNavigator(Node):
         elif abs(yaw_err) < 0.60:
             cmd.linear.x = 0.08
         # else: rotate in place
+        cmd.linear.x = self._safe_forward_speed(cmd.linear.x)
 
         self.vel.publish(cmd)
 
@@ -401,8 +411,8 @@ class GridNavigator(Node):
             return
 
         # Obstacle check
-        eff = min(self.sec['F'], self.sec['FL']*0.7, self.sec['FR']*0.7)
-        if eff < 0.30 and self.lidar_ok:
+        eff = self._front_clearance()
+        if eff < AVOID_TRIGGER_DIST and self.lidar_ok:
             cmd = Twist()
             cmd.angular.z = 0.5 if self.sec['L'] >= self.sec['R'] else -0.5
             self.vel.publish(cmd)
@@ -410,7 +420,7 @@ class GridNavigator(Node):
 
         if col == target:
             cmd = Twist()
-            cmd.linear.x = 0.20
+            cmd.linear.x = self._safe_forward_speed(0.20)
             # Small corrections to stay centered on colour patch
             if self.sec['L'] < 0.40: cmd.angular.z = -0.20
             elif self.sec['R'] < 0.40: cmd.angular.z = 0.20
@@ -418,6 +428,20 @@ class GridNavigator(Node):
         else:
             # Colour not yet under camera → use waypoints as fallback
             self._follow_waypoints()
+
+    def _front_clearance(self):
+        return min(self.sec['F'], self.sec['FL'] * 0.7, self.sec['FR'] * 0.7)
+
+    def _safe_forward_speed(self, requested):
+        if requested <= 0.0 or not self.lidar_ok:
+            return requested
+        eff = self._front_clearance()
+        if eff < SAFE_STOP_DIST:
+            return 0.0
+        if eff < SAFE_SLOW_DIST:
+            scale = (eff - SAFE_STOP_DIST) / (SAFE_SLOW_DIST - SAFE_STOP_DIST)
+            return max(0.05, requested * max(0.0, min(1.0, scale)))
+        return requested
 
     # ── Mission complete ──────────────────────────────────────────────────────
     def _mission_complete(self):
