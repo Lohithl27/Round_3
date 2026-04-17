@@ -54,9 +54,9 @@ TAG_ACTIONS = {
 }
 
 # ── Safety distances (metres) ─────────────────────────────────────────────────
-SAFE_STOP_DIST    = 0.22
-SAFE_SLOW_DIST    = 0.40
-AVOID_TRIGGER_DIST = 0.35
+SAFE_STOP_DIST     = 0.22
+SAFE_SLOW_DIST     = 0.40
+AVOID_TRIGGER_DIST = 0.40
 
 
 # ── NAVIGATION WAYPOINTS ──────────────────────────────────────────────────────
@@ -440,7 +440,8 @@ class GridNavigator(Node):
             return 0.0
         if eff < SAFE_SLOW_DIST:
             scale = (eff - SAFE_STOP_DIST) / (SAFE_SLOW_DIST - SAFE_STOP_DIST)
-            return max(0.05, requested * max(0.0, min(1.0, scale)))
+            clamped_scale = min(1.0, max(0.0, scale))
+            return max(0.05, requested * clamped_scale)
         return requested
 
     # ── Mission complete ──────────────────────────────────────────────────────
