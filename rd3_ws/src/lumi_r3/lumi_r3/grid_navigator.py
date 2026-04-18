@@ -10,12 +10,10 @@
 #   - Corrected waypoint path through the maze
 #   - No Nav2 dependency — pure waypoint + reactive navigation
 #
-# HARDCODED AprilTag behaviours (as instructed):
-#   SDF tag4 → "Tag 2: take right"
-#   SDF tag1 → "Tag 1: take left"
-#   SDF tag2 → "Tag 3: follow green"
-#   SDF tag0 → "Tag 4: u-turn"
-#   SDF tag3 → "Tag 5: follow orange"
+# HARDCODED AprilTag behaviours:
+#   SDF tag2 → follow green
+#   SDF tag4 → follow orange
+#   Others retain turn behaviors.
 # ──────────────────────────────────────────────────────────────────────────────
 
 import rclpy
@@ -46,11 +44,11 @@ def xy_to_tile(x, y):
 # SDF tag ID  →  (label,  action)
 # *** Verified against user instructions ***
 TAG_ACTIONS = {
-    4: ('Tag2_wallC',         'turn_right'),     # Tag 2 → take right
+    4: ('Tag4_wallC',         'follow_orange'),  # Tag 4 → follow orange
     1: ('Tag1_wallE',         'turn_left'),      # Tag 1 → take left
     2: ('Tag3_wallF',         'follow_green'),   # Tag 3 → follow green
     0: ('Tag4_rightwall_up',  'u_turn'),         # Tag 4 → u-turn
-    3: ('Tag5_rightwall_low', 'follow_orange'),  # Tag 5 → follow orange
+    3: ('Tag5_rightwall_low', 'turn_right'),     # Tag 5 → take right
 }
 
 # ── Safety distances (metres) ─────────────────────────────────────────────────
@@ -152,7 +150,6 @@ class GridNavigator(Node):
         self.started = False
         self.done    = False
         self.start_t = None
-        self.waiting_for_green_logged = False
 
         # AprilTag state
         self.visited_tags = set()
@@ -193,7 +190,7 @@ class GridNavigator(Node):
             '  Spawn : (-1.35, -1.80) = GREEN tile (bottom-left)\n'
             '  Stop  : (+1.35, -1.80) = RED tile\n'
             f'  Waypts: {len(WAYPOINTS)}\n'
-            '  Tags  : 4→right  1→left  2→green  0→uturn  3→orange\n'
+            '  Tags  : 2→green  4→orange  1→left  0→uturn  3→right\n'
             '  Auto-start: 5s')
         if SAFE_SLOW_DIST <= SAFE_STOP_DIST:
             self.get_logger().warn(
@@ -203,17 +200,10 @@ class GridNavigator(Node):
     # ── Startup ───────────────────────────────────────────────────────────────
     def _start_once(self):
         if not self.started:
-            if self.floor_colour != 'green':
-                if not self.waiting_for_green_logged:
-                    self.get_logger().info(
-                        f'Waiting on GREEN start tile (camera sees: {self.floor_colour})')
-                    self.waiting_for_green_logged = True
-                return
-            self.waiting_for_green_logged = False
             self.started = True
             self.start_t = time.time()
             self.mode    = Mode.WAYPOINTS
-            self.get_logger().info('MISSION START (GREEN confirmed) — following waypoints')
+            self.get_logger().info('MISSION START — following waypoints')
 
     # ── Callbacks ─────────────────────────────────────────────────────────────
     def cb_odom(self, msg):

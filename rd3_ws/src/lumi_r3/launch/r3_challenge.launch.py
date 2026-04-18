@@ -96,6 +96,16 @@ def generate_launch_description():
         name='grid_navigator', output='screen'
     )
 
+    rviz_cfg = os.path.join(lumi, 'rviz', 'r3_challenge.rviz')
+    rviz = Node(
+        package='rviz2',
+        executable='rviz2',
+        arguments=['-d', rviz_cfg],
+        parameters=[{'use_sim_time': True}],
+        condition=IfCondition(LaunchConfiguration('use_rviz')),
+        output='screen'
+    )
+
     teleop = Node(
         package='teleop_twist_keyboard',
         executable='teleop_twist_keyboard',
@@ -107,6 +117,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         DeclareLaunchArgument('use_teleop', default_value='false'),
+        DeclareLaunchArgument('use_rviz', default_value='true'),
 
         LogInfo(msg='[LUMI R3] START: GREEN (-1.35,-1.80) | STOP: RED (1.35,-1.80)'),
 
@@ -115,5 +126,6 @@ def generate_launch_description():
         TimerAction(period=9.0,  actions=[ekf]),
         TimerAction(period=14.0, actions=[apriltag, tile_det]),
         TimerAction(period=17.0, actions=[navigator]),
+        TimerAction(period=18.0, actions=[rviz]),
         TimerAction(period=18.0, actions=[teleop]),
     ])
