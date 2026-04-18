@@ -85,12 +85,6 @@ def generate_launch_description():
         parameters=[{'use_sim_time': True}]
     )
 
-    tile_det = Node(
-        package='lumi_r3', executable='tile_detector.py',
-        name='tile_detector', output='screen',
-        parameters=[{'use_sim_time': True}]
-    )
-
     navigator = Node(
         package='lumi_r3', executable='grid_navigator.py',
         name='grid_navigator', output='screen'
@@ -124,8 +118,8 @@ def generate_launch_description():
         rsp, gz, stamper,
         TimerAction(period=5.0,  actions=[spawn, bridge]),
         TimerAction(period=9.0,  actions=[ekf]),
-        TimerAction(period=14.0, actions=[apriltag, tile_det]),
+        TimerAction(period=14.0, actions=[apriltag]),
         TimerAction(period=17.0, actions=[navigator]),
-        TimerAction(period=18.0, actions=[rviz]),
+        rviz,
         TimerAction(period=18.0, actions=[teleop]),
     ])
