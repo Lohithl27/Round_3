@@ -44,11 +44,11 @@ def xy_to_tile(x, y):
 # SDF tag ID  →  (label,  action)
 # *** Verified against user instructions ***
 TAG_ACTIONS = {
-    4: ('Tag4_wallC',         'follow_orange'),  # Tag 4 → follow orange
-    1: ('Tag1_wallE',         'turn_left'),      # Tag 1 → take left
-    2: ('Tag2_wallF',         'follow_green'),   # Tag 2 → follow green
-    0: ('Tag0_rightwall_up',  'u_turn'),         # Tag 0 → u-turn
-    3: ('Tag3_rightwall_low', 'turn_right'),     # Tag 3 → take right
+    4: ('Tag4', 'follow_orange'),  # Tag 4 → follow orange
+    1: ('Tag1', 'turn_left'),      # Tag 1 → take left
+    2: ('Tag2', 'follow_green'),   # Tag 2 → follow green
+    0: ('Tag0', 'u_turn'),         # Tag 0 → u-turn
+    3: ('Tag3', 'turn_right'),     # Tag 3 → take right
 }
 
 # ── Safety distances (metres) ─────────────────────────────────────────────────
