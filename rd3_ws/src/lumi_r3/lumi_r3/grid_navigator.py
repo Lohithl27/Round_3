@@ -40,16 +40,10 @@ def xy_to_tile(x, y):
     return (max(0, min(4, row)), max(0, min(3, col)))
 
 
-# ── HARDCODED AprilTag → ACTION  ──────────────────────────────────────────────
-# SDF tag ID  →  (label,  action)
-# *** Verified against user instructions ***
-TAG_ACTIONS = {
-    4: ('Tag4', 'follow_orange'),  # Tag 4 → follow orange
-    1: ('Tag1', 'turn_left'),      # Tag 1 → take left
-    2: ('Tag2', 'follow_green'),   # Tag 2 → follow green
-    0: ('Tag0', 'u_turn'),         # Tag 0 → u-turn
-    3: ('Tag3', 'turn_right'),     # Tag 3 → take right
-}
+# ── AprilTag handling rules ────────────────────────────────────────────────────
+# Priority rule from task statement:
+#   - Tag 0 should be the first priority target.
+#   - If Tag 1 is seen before Tag 0, force a right turn to help reach Tag 0 first.
 
 # ── Safety distances (metres) ─────────────────────────────────────────────────
 SAFE_STOP_DIST     = 0.22
@@ -124,8 +118,6 @@ class Mode(Enum):
     WAIT         = 'WAITING'
     WAYPOINTS    = 'FOLLOW_WAYPOINTS'
     TURN         = 'TURNING'
-    FOLLOW_GREEN = 'FOLLOW_GREEN'
-    FOLLOW_ORANGE= 'FOLLOW_ORANGE'
     DONE         = 'DONE'
 
 
@@ -154,13 +146,12 @@ class GridNavigator(Node):
         # AprilTag state
         self.visited_tags = set()
         self.tag_log      = []
+        self.tag0_seen    = False
+        self.pre_tag0_right_turn_done = False
 
         # Turn state
         self.target_yaw   = 0.0
         self.turn_start_t = 0.0
-
-        # Colour from tile_detector
-        self.floor_colour = None
 
         # Stuck detection
         self.stuck_t = time.time()
@@ -180,7 +171,6 @@ class GridNavigator(Node):
         self.create_subscription(Odometry,   '/r1_mini/odom',        self.cb_odom,   10)
         self.create_subscription(LaserScan,  '/r1_mini/lidar',       self.cb_lidar,  be)
         self.create_subscription(String,     '/apriltag/detections', self.cb_tag,    10)
-        self.create_subscription(String,     '/tile/colour',         self.cb_colour, 10)
 
         self.create_timer(0.10, self.tick)
         self.create_timer(2.0,  self.pub_status)
@@ -191,7 +181,7 @@ class GridNavigator(Node):
             '  Spawn : (-1.35, -1.80) = GREEN tile (bottom-left)\n'
             '  Stop  : (+1.35, -1.80) = RED tile\n'
             f'  Waypts: {len(WAYPOINTS)}\n'
-            '  Tags  : 2→green  4→orange  1→left  0→uturn  3→right\n'
+            '  Tags  : prioritize Tag0; if Tag1 seen before Tag0 => turn right\n'
             '  Auto-start: 5s')
         if SAFE_SLOW_DIST <= SAFE_STOP_DIST:
             self.get_logger().warn(
@@ -243,14 +233,19 @@ class GridNavigator(Node):
             data = json.loads(msg.data)
             for det in data.get('detections', []):
                 tid = det['id']
-                if tid in self.visited_tags or tid not in TAG_ACTIONS:
+                if tid in self.visited_tags:
                     continue
                 self.visited_tags.add(tid)
-                label, action = TAG_ACTIONS[tid]
+                action = 'none'
+                if tid == 0:
+                    self.tag0_seen = True
+                elif tid == 1 and not self.tag0_seen and not self.pre_tag0_right_turn_done:
+                    action = 'turn_right'
+                    self.pre_tag0_right_turn_done = True
 
                 entry = {
                     'tag_id':    tid,
-                    'label':     label,
+                    'label':     f'Tag{tid}',
                     'action':    action,
                     'dist_m':    det['dist'],
                     'bearing':   det['bearing_deg'],
@@ -262,49 +257,22 @@ class GridNavigator(Node):
                 self.tag_log.append(entry)
 
                 self.get_logger().info(
-                    f'★ TAG sdf={tid} ({label})  action={action}  '
-                    f'{det["dist"]:.2f}m  visit={len(self.visited_tags)}/5')
+                    f'★ TAG sdf={tid}  action={action}  '
+                    f'{det["dist"]:.2f}m  visit={len(self.visited_tags)}')
 
-                self._do_action(action)
-        except Exception:
-            pass
-
-    def cb_colour(self, msg):
-        try:
-            self.floor_colour = json.loads(msg.data).get('colour')
+                if action == 'turn_right':
+                    self._do_action(action)
         except Exception:
             pass
 
     # ── Action execution ──────────────────────────────────────────────────────
     def _do_action(self, action):
-        if action == 'turn_left':
-            self.target_yaw   = self._norm(self.ryaw + math.pi/2)
-            self.turn_start_t = time.time()
-            self.mode = Mode.TURN
-            self.get_logger().info(
-                f'  → TURN LEFT  to {math.degrees(self.target_yaw):.0f}°')
-
-        elif action == 'turn_right':
+        if action == 'turn_right':
             self.target_yaw   = self._norm(self.ryaw - math.pi/2)
             self.turn_start_t = time.time()
             self.mode = Mode.TURN
             self.get_logger().info(
                 f'  → TURN RIGHT  to {math.degrees(self.target_yaw):.0f}°')
-
-        elif action == 'u_turn':
-            self.target_yaw   = self._norm(self.ryaw + math.pi)
-            self.turn_start_t = time.time()
-            self.mode = Mode.TURN
-            self.get_logger().info(
-                f'  → U-TURN  to {math.degrees(self.target_yaw):.0f}°')
-
-        elif action == 'follow_green':
-            self.mode = Mode.FOLLOW_GREEN
-            self.get_logger().info('  → FOLLOW GREEN tiles')
-
-        elif action == 'follow_orange':
-            self.mode = Mode.FOLLOW_ORANGE
-            self.get_logger().info('  → FOLLOW ORANGE tiles')
 
     # ── Main 10 Hz tick ───────────────────────────────────────────────────────
     def tick(self):
@@ -328,8 +296,6 @@ class GridNavigator(Node):
         {
             Mode.WAYPOINTS:     self._follow_waypoints,
             Mode.TURN:          self._do_turn,
-            Mode.FOLLOW_GREEN:  lambda: self._follow_colour('green'),
-            Mode.FOLLOW_ORANGE: lambda: self._follow_colour('orange'),
             Mode.DONE:          self.stop,
         }.get(self.mode, self.stop)()
 
@@ -402,33 +368,6 @@ class GridNavigator(Node):
         speed = 0.85 if abs(err) > 0.5 else 0.40
         cmd.angular.z = math.copysign(speed, err)
         self.vel.publish(cmd)
-
-    # ── Colour following ──────────────────────────────────────────────────────
-    def _follow_colour(self, target):
-        col = self.floor_colour
-
-        if col == 'red':
-            self._mission_complete()
-            return
-
-        # Obstacle check
-        eff = self._front_clearance()
-        if eff < AVOID_TRIGGER_DIST and self.lidar_ok:
-            cmd = Twist()
-            cmd.angular.z = 0.5 * self._avoid_turn_dir(eff)
-            self.vel.publish(cmd)
-            return
-
-        if col == target:
-            cmd = Twist()
-            cmd.linear.x = self._safe_forward_speed(0.20, eff)
-            # Small corrections to stay centered on colour patch
-            if self.sec['L'] < 0.40: cmd.angular.z = -0.20
-            elif self.sec['R'] < 0.40: cmd.angular.z = 0.20
-            self.vel.publish(cmd)
-        else:
-            # Colour not yet under camera → use waypoints as fallback
-            self._follow_waypoints()
 
     def _front_clearance(self):
         # Use average front-side clearance so one near side wall doesn't falsely
@@ -531,15 +470,15 @@ class GridNavigator(Node):
             'tags_found':   sorted(self.visited_tags),
             'pos':          [round(self.rx,3), round(self.ry,3)],
             'yaw_deg':      round(math.degrees(self.ryaw), 1),
-            'floor_colour': self.floor_colour,
+            'tag0_seen':    self.tag0_seen,
             'F_lidar':      round(self.sec['F'],2),
             'elapsed_s':    t,
         })
         self.stat.publish(msg)
         self.get_logger().info(
             f'[{self.mode.value}]  wp={self.wp_idx}/{len(WAYPOINTS)}  '
-            f'tile=({row},{col})  tags={len(self.visited_tags)}/5  '
-            f'colour={self.floor_colour}  F={self.sec["F"]:.2f}  t={t}s')
+            f'tile=({row},{col})  tags={len(self.visited_tags)}  '
+            f'tag0_seen={self.tag0_seen}  F={self.sec["F"]:.2f}  t={t}s')
 
 
 def main(args=None):
