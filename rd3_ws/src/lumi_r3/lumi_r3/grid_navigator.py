@@ -5,15 +5,9 @@
 # by Rino | GMIT Mandya
 #
 # FIXES:
-#   - Robot now spawns at GREEN tile (r4,c0) = (-1.35,-1.80) facing NORTH
-#   - Updated TAG_ACTIONS per user spec
-#   - Corrected waypoint path through the maze
+#   - Robot now spawns at GREEN tile (r4,c0) = (-1.35,-1.80)
+#   - AprilTag-only behavior with Tag0 priority
 #   - No Nav2 dependency — pure waypoint + reactive navigation
-#
-# HARDCODED AprilTag behaviours:
-#   SDF tag2 → follow green
-#   SDF tag4 → follow orange
-#   Others retain turn behaviors.
 # ──────────────────────────────────────────────────────────────────────────────
 
 import rclpy
@@ -71,27 +65,25 @@ WAYPOINTS = [
     (2, 0, 'north_c0'),
     (1, 0, 'north_c0_exit'),  # y=0.90 > 0.45, wall_A ended, can go east
 
-    # ── Phase 2: EAST → find Tag2 (SDF tag4 on wall_C, visible at r1_c1) ────
-    (1, 1, 'east_find_tag2'), # tag4 on wall_C visible here → fires → TURN RIGHT
+    # ── Phase 2: EAST exploration sweep ───────────────────────────────────────
+    (1, 1, 'east_explore_r1c1'),
 
     # ── Phase 3: RIGHT = SOUTH after Tag2 action ─────────────────────────────
     (2, 1, 'south_c1'),
     (3, 1, 'south_c1_bot'),   # wall_D ends at y=-0.45; at r3(y=-0.9) can go east
 
-    # ── Phase 4: EAST along r3 → find Tag1 (SDF tag1 on wall_E) ─────────────
+    # ── Phase 4: EAST exploration sweep ───────────────────────────────────────
     # wall_E at y=-0.45, x=0→0.9 blocks north movement at c2
-    # But tag1 at (0.45,-0.441) is visible from r3 looking north
-    (3, 2, 'east_find_tag1'), # tag1 on wall_E visible here → fires → TURN LEFT
+    (3, 2, 'east_explore_r3c2'),
 
     # ── Phase 5: LEFT = NORTH, but wall_E blocks at c2 → go to c3 first ─────
     (3, 3, 'east_avoid_wallE'), # c3 at x=1.35 > 0.9, no wall_E blocking north
 
-    # ── Phase 6: NORTH up right column → find Tag3 (SDF tag2 on wall_F) ─────
-    # Also Tag4 (SDF tag0) on right outer wall visible here
+    # ── Phase 6: NORTH up right column ────────────────────────────────────────
     (2, 3, 'north_c3'),
-    (1, 3, 'north_c3_tags'),  # SDF tag0 on right wall fires → U-TURN
+    (1, 3, 'north_c3_tags'),
 
-    # ── Phase 7: U-TURN → now facing SOUTH, retrace c3 ──────────────────────
+    # ── Phase 7: Continue exploration and retrace c3 ─────────────────────────
     (0, 3, 'top_c3'),         # go to top before turning back
     (1, 3, 'uturn_south'),
     (2, 3, 'south_c3'),
@@ -104,9 +96,7 @@ WAYPOINTS = [
     (3, 1, 'west_r3_c1'),
     (4, 1, 'drop_to_r4'),     # cross to bottom row via c1 (free of wall_F)
 
-    # ── Phase 9: Find Tag5 (SDF tag3 on right outer wall, near STOP) ─────────
-    # SDF tag3 at (1.796,-1.875) visible from bottom row looking right
-    # Fires → FOLLOW ORANGE → robot goes east
+    # ── Phase 9: Bottom-row exploration toward goal ───────────────────────────
 
     # ── Phase 10: EAST along bottom row → RED STOP ───────────────────────────
     (4, 2, 'east_bottom'),
@@ -147,7 +137,6 @@ class GridNavigator(Node):
         self.visited_tags = set()
         self.tag_log      = []
         self.tag0_seen    = False
-        self.pre_tag0_right_turn_done = False
 
         # Turn state
         self.target_yaw   = 0.0
@@ -181,7 +170,7 @@ class GridNavigator(Node):
             '  Spawn : (-1.35, -1.80) = GREEN tile (bottom-left)\n'
             '  Stop  : (+1.35, -1.80) = RED tile\n'
             f'  Waypts: {len(WAYPOINTS)}\n'
-            '  Tags  : prioritize Tag0; if Tag1 seen before Tag0 => turn right\n'
+            '  Tags  : prioritize Tag0; if Tag1 seen before Tag0 => turn right once\n'
             '  Auto-start: 5s')
         if SAFE_SLOW_DIST <= SAFE_STOP_DIST:
             self.get_logger().warn(
@@ -236,17 +225,17 @@ class GridNavigator(Node):
                 if tid in self.visited_tags:
                     continue
                 self.visited_tags.add(tid)
-                action = 'none'
                 if tid == 0:
                     self.tag0_seen = True
-                elif tid == 1 and not self.tag0_seen and not self.pre_tag0_right_turn_done:
-                    action = 'turn_right'
-                    self.pre_tag0_right_turn_done = True
+                # Design: all tags are passive markers except this one rule:
+                # if Tag 1 appears before Tag 0, force a single right turn.
+                should_turn_right = (tid == 1 and not self.tag0_seen)
+                logged_action = 'turn_right' if should_turn_right else 'none'
 
                 entry = {
                     'tag_id':    tid,
                     'label':     f'Tag{tid}',
-                    'action':    action,
+                    'action':    logged_action,
                     'dist_m':    det['dist'],
                     'bearing':   det['bearing_deg'],
                     'timestamp': round(time.time(), 3),
@@ -257,11 +246,11 @@ class GridNavigator(Node):
                 self.tag_log.append(entry)
 
                 self.get_logger().info(
-                    f'★ TAG sdf={tid}  action={action}  '
+                    f'★ TAG sdf={tid}  action={logged_action}  '
                     f'{det["dist"]:.2f}m  visit={len(self.visited_tags)}')
 
-                if action == 'turn_right':
-                    self._do_action(action)
+                if should_turn_right:
+                    self._do_action('turn_right')
         except Exception:
             pass
 
