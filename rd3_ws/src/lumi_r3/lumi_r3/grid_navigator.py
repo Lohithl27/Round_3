@@ -166,6 +166,7 @@ class GridNavigator(Node):
         self.stuck_t = time.time()
         self.stuck_x = self.rx
         self.stuck_y = self.ry
+        self.avoid_dir = 0  # lock turn direction during close-obstacle avoidance
 
         # Publishers
         self.vel      = self.create_publisher(Twist,  '/cmd_vel',           10)
@@ -360,7 +361,7 @@ class GridNavigator(Node):
         eff = self._front_clearance()
         if eff < AVOID_TRIGGER_DIST and self.lidar_ok:
             cmd = Twist()
-            cmd.angular.z = 0.6 if self.sec['L'] >= self.sec['R'] else -0.6
+            cmd.angular.z = 0.6 * self._avoid_turn_dir()
             self.vel.publish(cmd)
             return
 
@@ -414,7 +415,7 @@ class GridNavigator(Node):
         eff = self._front_clearance()
         if eff < AVOID_TRIGGER_DIST and self.lidar_ok:
             cmd = Twist()
-            cmd.angular.z = 0.5 if self.sec['L'] >= self.sec['R'] else -0.5
+            cmd.angular.z = 0.5 * self._avoid_turn_dir()
             self.vel.publish(cmd)
             return
 
@@ -430,11 +431,22 @@ class GridNavigator(Node):
             self._follow_waypoints()
 
     def _front_clearance(self):
+        # Use average diagonal clearance so one near side wall doesn't falsely
+        # block forward movement and cause start-tile oscillation.
+        side_avg = (self.sec['FL'] + self.sec['FR']) * 0.5
         return min(
             self.sec['F'],
-            self.sec['FL'] * SIDE_SECTOR_WEIGHT,
-            self.sec['FR'] * SIDE_SECTOR_WEIGHT
+            side_avg * SIDE_SECTOR_WEIGHT
         )
+
+    def _avoid_turn_dir(self):
+        # Keep a stable turn direction while obstacle is close to prevent
+        # left-right vibration caused by noisy L/R sector comparisons.
+        if self._front_clearance() >= SAFE_SLOW_DIST:
+            self.avoid_dir = 0
+        if self.avoid_dir == 0:
+            self.avoid_dir = 1 if self.sec['L'] >= self.sec['R'] else -1
+        return self.avoid_dir
 
     def _safe_forward_speed(self, requested, front_clearance=None):
         if requested <= 0.0 or not self.lidar_ok:
