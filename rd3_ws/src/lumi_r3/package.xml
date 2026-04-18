@@ -20,6 +20,7 @@
   <depend>ros_gz_sim</depend>
   <depend>ros_gz_bridge</depend>
   <depend>twist_stamper</depend>
+  <depend>rviz2</depend>
   <depend>mini_r1_v1_description</depend>
   <depend>mini_r1_v1_gz</depend>
 
