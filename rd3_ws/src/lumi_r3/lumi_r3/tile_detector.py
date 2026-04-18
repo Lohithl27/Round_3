@@ -31,8 +31,11 @@ RED_HI1   = np.array([ 10, 255, 255])
 RED_LO2   = np.array([170, 100, 100])
 RED_HI2   = np.array([180, 255, 255])
 
-# Minimum pixel area to accept detection
-MIN_PX = 400
+# Minimum pixel areas to accept detection
+# Green is intentionally lower because only a small green region may remain visible.
+MIN_GREEN_PX  = 140
+MIN_ORANGE_PX = 300
+MIN_RED_PX    = 300
 
 # Floor ROI = bottom 40% of camera frame (floor in front of robot)
 ROI_START = 0.60
@@ -107,9 +110,9 @@ class TileDetector(Node):
             cv2.inRange(hsv, RED_LO2, RED_HI2)))
 
         colour = None
-        if   green_px  > MIN_PX: colour = 'green'
-        elif orange_px > MIN_PX: colour = 'orange'
-        elif red_px    > MIN_PX: colour = 'red'
+        if   green_px  > MIN_GREEN_PX:  colour = 'green'
+        elif orange_px > MIN_ORANGE_PX: colour = 'orange'
+        elif red_px    > MIN_RED_PX:    colour = 'red'
 
         # ── Scoring log ───────────────────────────────────────────────────────
         if colour in ('green', 'orange') and self.curr_tile[0] >= 0:
