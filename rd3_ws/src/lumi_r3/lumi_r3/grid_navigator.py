@@ -46,9 +46,9 @@ def xy_to_tile(x, y):
 TAG_ACTIONS = {
     4: ('Tag4_wallC',         'follow_orange'),  # Tag 4 → follow orange
     1: ('Tag1_wallE',         'turn_left'),      # Tag 1 → take left
-    2: ('Tag3_wallF',         'follow_green'),   # Tag 3 → follow green
-    0: ('Tag4_rightwall_up',  'u_turn'),         # Tag 4 → u-turn
-    3: ('Tag5_rightwall_low', 'turn_right'),     # Tag 5 → take right
+    2: ('Tag2_wallF',         'follow_green'),   # Tag 2 → follow green
+    0: ('Tag0_rightwall_up',  'u_turn'),         # Tag 0 → u-turn
+    3: ('Tag3_rightwall_low', 'turn_right'),     # Tag 3 → take right
 }
 
 # ── Safety distances (metres) ─────────────────────────────────────────────────
