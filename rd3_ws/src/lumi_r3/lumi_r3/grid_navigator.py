@@ -361,7 +361,7 @@ class GridNavigator(Node):
         eff = self._front_clearance()
         if eff < AVOID_TRIGGER_DIST and self.lidar_ok:
             cmd = Twist()
-            cmd.angular.z = 0.6 * self._avoid_turn_dir()
+            cmd.angular.z = 0.6 * self._avoid_turn_dir(eff)
             self.vel.publish(cmd)
             return
 
@@ -415,7 +415,7 @@ class GridNavigator(Node):
         eff = self._front_clearance()
         if eff < AVOID_TRIGGER_DIST and self.lidar_ok:
             cmd = Twist()
-            cmd.angular.z = 0.5 * self._avoid_turn_dir()
+            cmd.angular.z = 0.5 * self._avoid_turn_dir(eff)
             self.vel.publish(cmd)
             return
 
@@ -431,7 +431,7 @@ class GridNavigator(Node):
             self._follow_waypoints()
 
     def _front_clearance(self):
-        # Use average diagonal clearance so one near side wall doesn't falsely
+        # Use average front-side clearance so one near side wall doesn't falsely
         # block forward movement and cause start-tile oscillation.
         side_avg = (self.sec['FL'] + self.sec['FR']) * 0.5
         return min(
@@ -439,10 +439,10 @@ class GridNavigator(Node):
             side_avg * SIDE_SECTOR_WEIGHT
         )
 
-    def _avoid_turn_dir(self):
+    def _avoid_turn_dir(self, front_clearance):
         # Keep a stable turn direction while obstacle is close to prevent
         # left-right vibration caused by noisy L/R sector comparisons.
-        if self._front_clearance() >= SAFE_SLOW_DIST:
+        if front_clearance >= SAFE_SLOW_DIST:
             self.avoid_dir = 0
         if self.avoid_dir == 0:
             self.avoid_dir = 1 if self.sec['L'] >= self.sec['R'] else -1
